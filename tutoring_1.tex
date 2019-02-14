@@ -1,0 +1,71 @@
+\documentclass[a4paper]{article}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\title{EE2012/ST2334 Discussion 1}
+\author{Liu Zichen}
+\date{14 Feb, 2019}
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+\item
+\textbf{[sample space]}
+The color of a single pixel on the screen can usually be controlled by R, G, B components. Suppose the intensity value of R, G, B can only be taken from $ \{0, 1, 2\}$.
+\begin{enumerate}
+    \item What's the sample space of the color of a single pixel?
+    \item If a low-resolution image consists of $28 \times 28$ pixels, what's the size of sample space for such an image?
+\end{enumerate}
+
+\item
+\textbf{[event probability]}
+Think of an event that has probability $p(x)=\frac{\pi}{4}$.
+
+\item
+\textbf{[Law]}
+Write down the De Morgan’s Law for 3 event case.
+
+\item
+\textbf{[counting]}
+How the multiplication principle and addition principle can be represented using a tree diagram? Come up with an example to show a $(2 \times 6 \times 2)$ and a $(2 + 3)$ case.
+
+\item
+\textbf{[permutation]}
+$P(n, k) = \frac { n ! } { ( n - k ) ! }$. Explain the equation on the left. Does the order matter in permutation?\\
+When do we use $(n - 1)!$ to calculate permutation?\\
+When do we use $P(n, (n_1, n_2, \ldots, n_k)) = \frac { n ! } { n _ { 1 } ! n _ { 2 } ! \cdots n _ { k } ! }$ to calculate permutation?
+
+\item
+\textbf{[combination]}
+$\left( \begin{array} { l } { n } \\ { k } \end{array} \right) = \frac { n ! } { k ! ( n - k ) ! }$. Explain the equation on the left. What's the relationship between combination and permutation? Does the order matter in combination?
+
+\item
+\textbf{[probability properties]}
+Use Venn Diagram to show $\operatorname { Pr } ( A \cup B ) = \operatorname { Pr } ( B ) + \operatorname { Pr } ( A ) - \operatorname { Pr } ( A \cap B )$. To generalize, what's $\operatorname { Pr } ( A \cup B \cup C)$?
+
+\item
+\textbf{[conditional probability]}
+$\operatorname { Pr } ( B | A ) = \frac { \operatorname { Pr } ( A \cap B ) } { \operatorname { Pr } ( A ) }$. Explain the equation on the left. 
+Can you make intuitive explanation for the joint probability $\operatorname { Pr } ( A \cap B ) = \operatorname { Pr } ( A ) \operatorname { Pr } ( B | A )$?
+
+\item
+\textbf{[law of total probability or marginalization]}
+$\operatorname { Pr } ( B ) = \sum _ { i = 1 } ^ { n } \operatorname { Pr } \left( B \cap A _ { i } \right) = \sum _ { i = 1 } ^ { n } \operatorname { Pr } \left( A _ { i } \right) \operatorname { Pr } ( B | A _ { i } )$.
+
+\item
+\textbf{[independence]}
+$\operatorname { Pr } ( A \cap B ) = \operatorname { Pr } ( A ) \operatorname { Pr } ( B )$. What condition must be satisfied for the equation on the left to hold?\\
+Research on mutually independent and pair-wise independent.
+
+\end{enumerate}
+\end{document}

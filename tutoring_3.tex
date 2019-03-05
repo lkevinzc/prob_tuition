@@ -1,0 +1,110 @@
+\documentclass[a4paper]{article}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,margin=0.2in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\title{EE2012/ST2334 Discussion 3\footnote{Some examples from bookmarked pages of the lecture notes}}
+\author{Liu Zichen}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+\item
+\textbf{[2-D random variable]}
+Let $E$ be an experiment and $S$ a sample space associated with $E$.Let $X$ and $Y$ be two functions each assigning a real number to each $s \in S$. We call $(X, Y)$ a two-dimensional random variable (or random vector). Its \textbf{range} is $R_{X, Y}=\{(x, y) | x=X(s), y=Y(s), s \in S\}$. The definition can be extended to higher dimension, and they can be defined for both discrete and continuous random variable.
+
+\item
+\textbf{[Joint probability function]}
+
+Discrete:
+\begin{equation}
+\begin{split}
+    f_{X, Y}\left(x_{i}, y_{j}\right) & = 
+    \operatorname{Pr}\left(X=x_{i}, Y=y_{j}\right) \\
+    f_{X, Y}\left(x_{i}, y_{j}\right) & \geq 0 \text{ for all } (x_i, y_j) \in R_{X, Y}\\
+    \sum_{i=1}^{\infty} \sum_{j=1}^{\infty} f_{X, Y}\left(x_{i}, y_{j}\right)& =\sum_{i=1}^{\infty} \sum_{j=1}^{\infty} \operatorname{Pr}\left(X=x_{i}, Y=y_{j}\right)=1
+\end{split}
+\end{equation}
+Continuous: change $\sum$ to $\int$.
+
+\item
+\textbf{[Marginal distribution]}
+Recall the law of total probability (discrete case):
+\begin{equation}
+    \begin{split}
+        \operatorname{Pr}(A)
+        &=\sum_{n} \operatorname{Pr}\left(A \cap B_{n}\right) \\
+        &=\sum_{n} \operatorname{Pr}(A | B_{n}) \operatorname{Pr}\left(B_{n}\right)
+    \end{split}
+\end{equation}
+If $(X, Y)$ is a 2-D discrete random variable, and its joint probability is $f_{X, Y}(x, y)$, the marginal distributions are:
+\begin{equation}
+    \begin{split}
+        f_{X}(x)=\sum_{y} f_{X, Y}(x, y) \\
+        f_{Y}(y)=\sum_{x} f_{X, Y}(x, y)
+    \end{split}
+\end{equation}
+
+\item
+\textbf{[Conditional distribution]}
+\begin{equation}
+    f_{Y|X}(y | x)=\frac{f_{X, Y}(x, y)}{f_{X}(x)}, \text { if } f_{X}(x)>0
+\end{equation}
+
+\item
+\textbf{[Independence]}
+\begin{equation}
+    \mathrm{P}(A \cap B)=\mathrm{P}(A) \mathrm{P}(B) \Longleftrightarrow \mathrm{P}(A)=\frac{\mathrm{P}(A \cap B)}{\mathrm{P}(B)}=\mathrm{P}(A | B)
+\end{equation}
+
+\item
+\textbf{[Expectation]}
+\begin{equation}
+    E[g(X, Y)]=\left\{\begin{array}{l}{\sum_{x} \sum_{y} g(x, y) f_{X, Y}(x, y), \quad \quad \quad \text { for Discrete } \mathrm{RV}^{\prime} \mathrm{s}} \\ {\int_{-\infty}^{\infty} \int_{-\infty}^{\infty} g(x, y) f_{X, Y}(x, y) d x d y, \text { for Continuous RV's }}\end{array}\right.
+\end{equation}
+
+\begin{enumerate}
+    \item 
+    A special case is that when $g(X, Y)=\left(X-\mu_{X}\right)\left(Y-\mu_{Y}\right)$, the expectation is the \textbf{covariance} of $(X, Y)$.
+    $\operatorname{Cov}(X, Y)=E\left[\left(X-\mu_{X}\right)\left(Y-\mu_{Y}\right)\right] = E(X Y)-\mu_{X} \mu_{Y}$.
+    
+    \item
+    If $X$ and $Y$ are independent, $\operatorname{cov}(X, Y)=0$. But $\operatorname{cov}(X, Y)=0$ does \textbf{NOT} imply independence.
+    
+    \item
+    $\operatorname{Cov}(a X+b, c Y+d)=a c \operatorname{Cov}(X, Y)$, $V(a X+b Y)=a^{2} V(X)+b^{2} V(Y)+2 a b \operatorname{Cov}(X, Y)$
+\end{enumerate}
+
+\item
+\textbf{[Correlation coefficient]}
+\begin{equation}
+    \rho_{X, Y}=\frac{\operatorname{Cov}(X, Y)}{\sqrt{V(X)} \sqrt{V(Y)}}
+\end{equation}
+
+\begin{enumerate}
+    \item 
+    $-1 \leq \rho_{X, Y} \leq 1$
+    
+    \item
+    $\rho_{X, Y}$ measures the degree of \textbf{linear relationship} between $X$ and $Y$.
+    
+    \item
+    If $X$ and $Y$ are independent, $rho_{X, Y} = 0$. But $rho_{X, Y} = 0$ does \textbf{NOT} imply independence.
+\end{enumerate}
+
+ 
+\end{enumerate}
+\end{document}

@@ -1,0 +1,132 @@
+\documentclass[a4paper]{article}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,margin=0.2in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\title{EE2012/ST2334 Discussion 4\footnote{Some examples from bookmarked pages of the lecture notes}}
+\author{Liu Zichen}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+\textbf{\textit{Discrete distributions}}: Discrete uniform distribution, Bernoulli and Binomial distribution, Negative binomial distribution, Poisson distribution (and its approximation to Binomial distribution).
+
+
+\textbf{\textit{Continuous distributions}}:
+Continuous uniform distribution, Exponential distribution, Normal distribution (and its approximation to Binomial distribution).
+
+
+\begin{enumerate}
+
+\item
+\textbf{[Discrete uniform]}
+Equal probability for all discrete values. $f_{X}(x)=1 / k, \quad x=x_{1}, x_{2}, \cdots, x_{k}$, and 0 otherwise. Its mean and variance:
+\begin{equation}
+    \mu=E(X)=\sum x f_{X}(x)=\sum_{i=1}^{k} x_{i} \frac{1}{k}=\frac{1}{k} \sum_{i=1}^{k} x_{i} 
+\end{equation} 
+
+\begin{equation}
+\sigma^{2}=V(X)=\sum(x-\mu)^{2} f_{X}(x)=\frac{1}{k} \sum_{i=1}^{k}\left(x_{i}-\mu\right)^{2} \quad (\mathcal{=}  E\left(X^{2}\right)-\mu^{2}=\frac{1}{k}\left(\sum_{i=1}^{k} x_{i}^{2}\right)-\mu^{2})
+\end{equation}
+
+\item
+\textbf{[Bernoulli and Binomial]}
+Random experiments with only \textbf{two possible outcomes} are defined as Bernoulli experiments. $f_{X}(x)=p^{x}(1-p)^{1-x}, \quad x=0,1$, where $0<p<1$. We can also denoe as $X \sim Ber(p)$.
+\begin{equation}
+\mu=E(X)=p
+\end{equation}
+\begin{equation}
+\sigma^{2}=V(X)=p(1-p)
+\end{equation}
+If we take the Bernoulli trials for \textbf{n} times, with each trial being \textit{independent}, and observe \textbf{x} times of success. We say the random variable X, where x is take from, is defined to have a binomial distribution:
+$\operatorname{Pr}(X=x)=f_{X}(x)=\left( \begin{array}{l}{n} \\ {x}\end{array}\right) p^{x}(1-p)^{n-x}$, for $x=0,1, \cdots, n$ and $0<p<1$. Also denote as $X \sim B(n, p)$. Notice that when $n=1$, it becomes Bernoulli distribution.
+\begin{equation}
+\mu=E(X)=n p
+\end{equation}
+\begin{equation}
+\sigma^{2}=V(X)=n p(1-p)
+\end{equation}
+
+\item
+\textbf{[Negative binomial]}
+Let $X$ be a random variable that represents the number of trials to produce $k$ successes in a sequence of independent Bernoulli trials. $X$ is said to follow a Negative Binomial distribution, namely $X \sim NB(k, p)$: $\operatorname{Pr}(X=x)=f_{X}(x)=\left( \begin{array}{c}{x-1} \\ {k-1}\end{array}\right) p^{k} q^{x-k}$ for $x=k, k+1, k+2, \cdots$.
+\begin{equation}
+E(X)=\frac{k}{p}
+\end{equation}
+\begin{equation}
+\operatorname{Var}(X)=\frac{(1-p) k}{p^{2}}
+\end{equation}
+Notice that the number of trials that are required to have the \textit{first} success is known to follow a special case of negative binomial distribution called \textit{geometric distribution}.
+
+\item
+\textbf{[Poisson]}
+Experiments yielding numerical values of a random variable X, \textit{the number of successes occurring during a given time interval or in a specified region}, are called Poisson experiments. And the number of successes X in a Poisson experiment is called a Poisson random variable, $X \sim Poisson(\lambda)$: $f_{X}(x)=\operatorname{Pr}(X=x)=\frac{e^{-\lambda} \lambda^{x}}{x !}$, for $x=0,1,2,3, \cdots$.
+\begin{equation}
+E(X)=\lambda
+\end{equation}
+\begin{equation}
+V(X)=\lambda
+\end{equation}
+Recall the Binomial distribution defined in (2), suppose that $n \rightarrow \infty$ and $p \rightarrow 0$ in such a way that $\lambda=n p$ remains constant. We have $X$ being approximated by a Poisson distribution:
+\[ \lim _{p \rightarrow 0 \atop n \rightarrow \infty} \operatorname{Pr}(X=x)=\frac{e^{-n p}(n p)^{x}}{x !}\]
+If $p \rightarrow 1$, we can still use the approximation by interchanging the definition of success and failure.
+
+\newpage
+
+\item
+\textbf{[Continuous uniform]}
+A continuous random variable, which is uniformly distributed over the interval $[a, b]$, $-\infty<a<b<\infty$. $f_{X}(x)=\frac{1}{b-a}, \text { for } a \leq x \leq b$, and 0 otherwise.
+\begin{equation}
+E(X)=\frac{a+b}{2}
+\end{equation}
+\begin{equation}
+V(X)=\frac{1}{12}(b-a)^{2}
+\end{equation}
+
+\item
+\textbf{[Exponential]}
+A continuous random variable X assuming all nonnegative values is said to have an exponential distribution with parameter $\alpha > 0$ if its probability density function is given by $f_{X}(x)=\alpha e^{-\alpha x}, \text { for } x>0$. Denote as $X \sim \operatorname{Exp}(\alpha)$
+\begin{equation}
+E(X)=\frac{1}{\alpha}
+\end{equation}
+\begin{equation}
+V(X)=\frac{1}{\alpha^{2}}
+\end{equation}
+\textit{No Memory Property of Exponential Distribution}: for any two positive numbers $s$ and $t$, $\operatorname{Pr}(X>s+t | X>s)=\operatorname{Pr}(X>t)$. 
+\textit{Meaning}: If $X$ denotes the life length of a bulb, given that the bulb has lasted $s$ time units, then the probability of it lasting for the next $t$ time units is the same as the probability that it would last for the first $t$ time units as brand new. 
+
+Another note is that the exponential distribution is frequently used as a model for the \textit{distribution of times between the occurrence of successive events} such as customers arriving at a service facility or calls coming in to a switchboard.
+
+\item
+\textbf{[Gaussian]}
+The PDF of Gaussian (normal) distribution is: $f_{X}(x)=\frac{1}{\sqrt{2 \pi} \sigma} \exp \left(-\frac{(x-\mu)^{2}}{2 \sigma^{2}}\right), -\infty<x<\infty$, where $-\infty<\mu<\infty \text { and } \sigma>0$. Denote as $X \sim N\left(\mu, \sigma^{2}\right)$.
+\begin{equation}
+E(X)=\mu
+\end{equation}
+\begin{equation}
+V(X)=\sigma^{2}
+\end{equation}
+To obtain the standardized Gaussian, let $Z=\frac{(X-\mu)}{\sigma}$, and result in $Z \sim N(0,1)$,  $f_{Z}(z)=\frac{1}{\sqrt{2 \pi}} \exp \left(-\frac{Z^{2}}{2}\right)$.
+
+Statistical table: gives the values $\Phi(z)$ of a given $z$, where $\Phi(z)$ is the cumulative distribution function of a standardized Normal random variable $Z$. 
+\begin{equation}
+\begin{array}{c}{\Phi(z)=\operatorname{Pr}(Z \leq z)} \\ {1-\Phi(z)=\operatorname{Pr}(Z>z)}\end{array}
+\end{equation}
+Recall the Binomial distribution defined in (2), suppose that $n \rightarrow \infty$ and $p \rightarrow \frac{1}{2}$ (or even when $n$ is small and $p$ is not extremely close to $0$ or $1$), we have $X$ being approximated by a Gaussian distribution with mean $\mu=n p$ and variance $\sigma^{2}=n p(1-p)$:
+\[Z=\frac{X-n p}{\sqrt{n p q}} \text { is approximately } \sim N(0,1)
+\]
+
+
+\end{enumerate}
+\end{document}

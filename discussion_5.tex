@@ -1,0 +1,87 @@
+\documentclass[a4paper]{article}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,margin=0.2in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\title{EE2012/ST2334 Discussion 5\footnote{Some examples from bookmarked pages of the lecture notes}}
+\author{Liu Zichen}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+\item
+\textbf{[Population, sample]}
+A \textbf{\textit{population}} is a set of similar items or events which is of interest for some question or experiment, and a \textbf{\textit{sample}} is any subset of population. Every outcome or observation can be recorded as a \textit{numerical} or a \textit{categorical} value. Population may be finite or infinite.
+
+\item
+\textbf{[Random sampling]}
+\textbf{\textit{Simple random sample}} of $n$ observations is a sample such that every subset of $n$ observations of the population has the same probability of being selected.
+\begin{enumerate}
+    \item When we sample from a finite population, we can sample with/without replacement. This corresponds to the counting problems.
+    
+    \item When we sample from an infinite population, if we assume that all random variables have the \textbf{\textit{same}} distribution and are \textbf{\textit{independent}}, we say that the sample is random.
+\end{enumerate}
+    
+\item
+\textbf{[Sampling distribution]}
+The main purpose of sampling is to estimate some \textbf{\textit{unknown population parameters}}, so that we can make some \textit{\textbf{inference}} regarding the true population. A value computed from a sample is called a \textit{\textbf{statistic}}, and it varies (why?). Hence a statistic should be a random variable. The \textit{probability distribution of a statistic} is called a \textit{\textbf{sampling distribution}}.
+
+Sample mean defined by the statistic:
+\begin{equation}
+\overline{X}=\frac{1}{n} \sum_{i=1}^{n} X_{i}
+\end{equation}
+\textbf{Theorem} (see an example): For random samples of size $n$ taken from an \textit{infinite} population or from a \textit{finite population with replacement} having population mean $\mu$ and population standard deviation $\sigma$, the \textbf{sampling distribution of the sample mean} has:
+\begin{equation}
+\mu_{\overline{X}}=\mu_{X} \quad \text { and } \quad \sigma_{\overline{X}}^{2}=\frac{\sigma_{X}^{2}}{n}
+\end{equation}
+\textbf{Law of large number (LLN)}: Let $X_1, X_2, \cdots, X_n$ be a random sample of size $n$ from a population having any distribution with mean $\mu$ and \textit{finite} population variance $\sigma ^ 2$. Then for any $\epsilon \in \mathcal{R}$
+\begin{equation}
+P(|\overline{X}-\mu|>\epsilon) \rightarrow 0 \text { as } n \rightarrow \infty
+\end{equation}
+\textbf{Central limit theorem (CLT)}: Let $X_1, X_2, \cdots, X_n$ be a random sample of size $n$ from a population having any distribution with mean $\mu$ and \textit{finite} population variance $\sigma ^ 2$. If $n$ is sufficiently large, the sampling distribution of the sample mean $\overline{X}$ is approximately normal with mean $\mu$ and variance $\frac{\sigma ^2 }{n}$:
+\begin{equation}
+Z=\frac{\overline{X}-\mu}{\sigma / \sqrt{n}} \text { approx } \sim N(0,1)
+\end{equation}
+\textbf{Theorem}: if $X_i, i=1,2,\cdots,n$ are $N\left(\mu, \sigma^{2}\right)$, the sample mean $\overline{X}$ is $N\left(\mu, \frac{\sigma^{2}}{n}\right)$ regardless of the sample size $n$.
+
+What about the \textbf{sampling distribution of the difference of two sample means}?
+If independent samples of size $n_1 (\geq 30)$ and $n_2 (\geq 30)$ are drawn from two large or infinite populations, discrete or continuous, with means $\mu_1$ and $\mu_2$ and variances $\sigma^2_1$ and $\sigma^2_2$, respectively. The sampling distribution of the difference of means, $\overline{X}_1$ and $\overline{X}_2$, is approximately normally distributed with mean and standard deviation given by 
+$\mu_{\overline{X}_{1}-\overline{X}_{2}}=\mu_{1}-\mu_{2}  \text { and } \sigma_{\overline{X}_{1}-\overline{X}_{2}}=\sqrt{\sigma_{1}^{2} / n_{1}+\sigma_{2}^{2} / n_{2}}$:
+\begin{equation}
+\frac{\overline{X}_{1}-\overline{X}_{2}-\left(\mu_{1}-\mu_{2}\right)}{\sqrt{\frac{\sigma_{1}^{2}}{n_{1}}+\frac{\sigma_{2}^{2}}{n_{2}}}} \text { approx } \sim N(0,1)
+\end{equation}
+
+\item
+\textbf{[Chi-square distribution]}
+$Y$ is a chi-square distribution with \textit{$n$ degrees of freedom} if 
+\begin{equation}
+f_{Y}(y)=\frac{1}{2^{n / 2} \Gamma(n / 2)} y^{n / 2-1} e^{-y / 2}, \quad \text { for } y>0, \text{and 0 otherwise}
+\end{equation}
+It is denoted as $\chi^{2}(n)$, and $n$ is a positive integer and $\Gamma(\cdot)$ is the gamma function: $\Gamma(n)=\int_{0}^{\infty} x^{n-1} e^{-x} d x=(n-1) !$.
+
+$E(Y)=n$, $V(Y)=2 n$; if $X \sim N(0,1), \text { then } X^{2} \sim \chi^{2}(1)$; let $X_{1}, X_{2}, \cdots, X_{n}$ be a random sample from a normal population with mean $\mu$ and variance $\sigma^2$, $Y=\sum_{i=1}^{n} \frac{\left(X_{i}-\mu\right)^{2}}{\sigma^{2}} \sim \chi^{2}(n)$.
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+\end{document}

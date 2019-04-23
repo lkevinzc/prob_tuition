@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+
+\usepackage{parskip} % Package to tweak paragraph skipping
+\usepackage{tikz} % Package for drawing
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+
+\usepackage[a4paper,margin=0.2in]{geometry}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+
+\title{EE2012/ST2334 Discussion 6}
+\author{Liu Zichen}
+\date{\today}
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}
+
+\item
+\textbf{[Estimation based on Normal Distribution]}
+Given the observed data $x_{1}, x_{2}, \cdots, x_{n}$, we want to estimate the parameter $\theta$ which controls the distribution $f_{X}(x | \theta)$. A statistic is a function of the random variable which \textit{does not depend on any unknown parameters}. The statistic that one uses to obtain a point estimate is call an \textbf{estimator}. Interval estimation is to define two statistics and use their interval to estimate the parameters.
+
+Unbiased estimator: $E(\widehat{\Theta})=\theta$.
+
+Confidence interval for interval estimation\footnote{p21}. For the given error margin, the sample size is given by $n \geq\left(Z_{\alpha / 2} \frac{\sigma}{e}\right)^{2}$.
+
+Confidence interval for the mean in 1) known variance case; 2) unknown variance case.
+
+Confidence interval for the difference between two means. $\overline{X}_{1}-\overline{X}_{2}$ is a point estimator of $\mu_{1}-\mu_{2}$. Also two cases, known variances and unknown variances.
+
+Confidence interval for the difference between two means for paired data (dependent data).
+
+Confidence interval for a variance.
+
+Confidence interval for the ratio of two variances with unknown means.
+
+\item
+\textbf{[Hypotheses testing based on Normal Distribution]}
+\begin{itemize}
+    \item Often, hypothesis is stated in a form that hopefully will be rejected, denoted as $H_0$ (Null hypothesis); its opposite (the one we need to accept due to insufficient data for concluding false) is denoted as $H_1$(Alternative hypothesis).
+    
+    \item Two tailed test and one tailed test.
+    
+    \item Type I and Type II error.
+    
+     \item Acceptance and rejection regions, critical value.
+     
+     \item Hypothesis testing on mean with known/unknown variance.
+     \begin{itemize}
+         \item Two-sided
+         \item One-sided
+     \end{itemize}
+     
+     \item Hypothesis testing on difference between two means.
+     
+     \item Hypothesis testing on variance.
+     
+     \item Hypothesis testing on ratio variance.
+    
+    
+    
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{enumerate}
+\end{document}
